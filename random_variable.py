@@ -26,15 +26,15 @@ if __name__ == '__main__':
         observation_noise=np.array([[var]])
         )
 
-    state = np.zeros((N))
-    y = np.zeros((N))
-    for i in range(N):
+    state = np.zeros((n))
+    y = np.zeros((n))
+    for i in range(n):
         y[i] = np.array([mean]) + var*np.random.randn(1)
         state[i], _ = kf.estimate(y[i], np.array([[0]]))
 
     fig = plt.figure()
     plt.title('Expected value of the random variable')
-    plt.plot(mean*np.ones((N)), 'g--', label='expected value')
+    plt.plot(mean*np.ones((n)), 'g--', label='expected value')
     plt.plot(state, 'r', label='estimated expected value')
     plt.plot(y, 'x', label='measurments')
     plt.xlabel('Samples')
