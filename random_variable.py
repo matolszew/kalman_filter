@@ -14,7 +14,7 @@ if __name__ == '__main__':
 
     mean = args.mean
     var = args.var
-    N = args.samples
+    n = args.samples
 
     kf = KalmanFilter(
         state=np.array([[0]]),
